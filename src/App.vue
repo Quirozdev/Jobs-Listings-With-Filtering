@@ -5,6 +5,7 @@ import JobCard from "./components/JobCard/JobCard.vue";
 import { data } from "./data";
 import { useFiltersStore } from "./stores/filters";
 import { getCategories } from "./types";
+import Attributions from "./components/Attributions.vue/Attributions.vue";
 
 const { filters } = useFiltersStore();
 
@@ -28,6 +29,9 @@ const filteredJobs = computed(() => {
   <main>
     <JobCard v-for="item in filteredJobs" :key="item.id" :job-posting="item" />
   </main>
+  <footer>
+    <Attributions />
+  </footer>
 </template>
 
 <style scoped>
