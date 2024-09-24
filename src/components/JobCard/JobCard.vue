@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { JobPosting } from "@/types";
+import CompanyImage from "./CompanyImage/CompanyImage.vue";
 
 defineProps<{
   jobPosting: JobPosting;
@@ -9,10 +10,9 @@ defineProps<{
 <template>
   <article class="job-posting-container">
     <div class="job-posting-img-info-container">
-      <img
+      <CompanyImage
         :src="`../../../public/images/${jobPosting.logo}`"
         :alt="jobPosting.company + ' logo'"
-        class="company-img"
       />
       <div class="information-container">
         <div class="job-posting-header">
@@ -49,6 +49,7 @@ defineProps<{
 
 <style scoped>
 .job-posting-container {
+  position: relative;
   border-radius: 4px;
   padding: 1.5rem;
   background-color: white;
@@ -69,6 +70,8 @@ defineProps<{
 }
 
 .separator {
+  display: none;
+  width: 100%;
   height: 2px;
   background-color: var(--light-grayish-cyan-filter);
 }
@@ -81,11 +84,13 @@ defineProps<{
 .information-container {
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 
 .job-posting-header {
   display: flex;
   gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .job-posting-details {
@@ -152,5 +157,15 @@ defineProps<{
   color: var(--desaturated-dark-cyan);
   font-weight: 700;
   text-align: center;
+}
+
+@media screen and (max-width: 744px) {
+  .job-posting-container {
+    padding-top: 2.2rem;
+  }
+
+  .separator {
+    display: block;
+  }
 }
 </style>
