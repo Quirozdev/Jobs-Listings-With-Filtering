@@ -13,3 +13,7 @@ export type JobPosting = {
   languages: string[];
   tools: string[];
 };
+
+export function getCategories(jobPosting: JobPosting): string[] {
+  return [jobPosting.role, jobPosting.level, ...jobPosting.languages];
+}

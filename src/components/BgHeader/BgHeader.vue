@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import FilterGroup from "../FilterGroup/FilterGroup.vue";
+</script>
+
 <template>
   <header>
     <picture>
@@ -10,15 +14,18 @@
         alt="Header Background"
       />
     </picture>
+    <FilterGroup />
   </header>
 </template>
 
 <style scoped>
 header {
+  position: relative;
   background-color: var(--desaturated-dark-cyan);
   height: 10vh;
   display: flex;
   flex-direction: column;
+  margin-bottom: 3rem;
 }
 
 picture {

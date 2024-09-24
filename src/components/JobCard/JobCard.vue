@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { JobPosting } from "@/types";
 import CompanyImage from "./CompanyImage/CompanyImage.vue";
+import CategoryTag from "./CategoryTag/CategoryTag.vue";
 
 defineProps<{
   jobPosting: JobPosting;
@@ -32,17 +33,13 @@ defineProps<{
     </div>
     <div class="separator"></div>
     <div class="tags-container">
-      <div class="tag">
-        <p>{{ jobPosting.role }}</p>
-      </div>
-      <div class="tag">
-        <p>{{ jobPosting.level }}</p>
-      </div>
-      <template v-for="language in jobPosting.languages" :key="language">
-        <div class="tag">
-          <p>{{ language }}</p>
-        </div>
-      </template>
+      <CategoryTag :category="jobPosting.role" />
+      <CategoryTag :category="jobPosting.level" />
+      <CategoryTag
+        v-for="language in jobPosting.languages"
+        :key="language"
+        :category="language"
+      />
     </div>
   </article>
 </template>
@@ -145,18 +142,6 @@ defineProps<{
   gap: 0.75rem;
   flex-wrap: wrap;
   align-items: center;
-}
-
-.tag {
-  background-color: var(--light-grayish-cyan-bg);
-  padding: 0.25rem 0.7rem;
-  border-radius: 6px;
-}
-
-.tag p {
-  color: var(--desaturated-dark-cyan);
-  font-weight: 700;
-  text-align: center;
 }
 
 @media screen and (max-width: 744px) {

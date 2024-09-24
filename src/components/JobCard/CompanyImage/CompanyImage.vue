@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import { onMounted, useTemplateRef, watch } from "vue";
+import { useTemplateRef } from "vue";
 
 const img = useTemplateRef("img");
-
-watch(img, () => {});
 </script>
 
 <template>

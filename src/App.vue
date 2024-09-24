@@ -1,25 +1,36 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import BgHeader from "./components/BgHeader/BgHeader.vue";
 import JobCard from "./components/JobCard/JobCard.vue";
 import { data } from "./data";
+import { useFiltersStore } from "./stores/filters";
+import { getCategories } from "./types";
+
+const { filters } = useFiltersStore();
+
+const filteredJobs = computed(() => {
+  // role, level, languages
+  return data.filter((jobPosting) => {
+    const categories = getCategories(jobPosting);
+    const filtersArray = Array.from(filters);
+    for (let i = 0; i < filtersArray.length; i++) {
+      if (!categories.includes(filtersArray[i])) {
+        return false;
+      }
+    }
+    return true;
+  });
+});
 </script>
 
 <template>
-  <div class="container">
-    <BgHeader />
-    <main>
-      <JobCard v-for="item in data" :key="item.id" :job-posting="item" />
-    </main>
-  </div>
+  <BgHeader />
+  <main>
+    <JobCard v-for="item in filteredJobs" :key="item.id" :job-posting="item" />
+  </main>
 </template>
 
 <style scoped>
-.container {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
 main {
   display: flex;
   flex-direction: column;
