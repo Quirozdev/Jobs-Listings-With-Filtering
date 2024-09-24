@@ -12,7 +12,7 @@ defineProps<{
   <article class="job-posting-container">
     <div class="job-posting-img-info-container">
       <CompanyImage
-        :src="`../../../public/images/${jobPosting.logo}`"
+        :src="`./images/${jobPosting.logo}`"
         :alt="jobPosting.company + ' logo'"
       />
       <div class="information-container">

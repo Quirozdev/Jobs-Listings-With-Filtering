@@ -7,12 +7,9 @@ import FilterGroup from "../FilterGroup/FilterGroup.vue";
     <picture>
       <source
         media="(max-width: 375px)"
-        srcset="../../../public/images/bg-header-mobile.svg"
+        srcset="/images/bg-header-mobile.svg"
       />
-      <img
-        src="../../../public/images/bg-header-desktop.svg"
-        alt="Header Background"
-      />
+      <img src="/images/bg-header-desktop.svg" alt="Header Background" />
     </picture>
     <FilterGroup />
   </header>

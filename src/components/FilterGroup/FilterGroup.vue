@@ -19,10 +19,7 @@ const { filters, removeFilter, clearFilters } = useFiltersStore();
               }
             "
           >
-            <img
-              src="../../../public/images/icon-remove.svg"
-              alt="Remove icon"
-            />
+            <img src="/images/icon-remove.svg" alt="Remove icon" />
           </button>
         </div>
       </template>
