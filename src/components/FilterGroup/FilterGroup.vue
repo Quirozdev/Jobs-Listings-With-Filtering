@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { useFiltersStore } from "@/stores/filters";
 import CategoryTag from "../JobCard/CategoryTag/CategoryTag.vue";
 
